@@ -7,7 +7,11 @@ return {
     },
     opts = {
       adapters = {
-        "neotest-vstest",
+        ["neotest-vstest"] = {
+          dap_settings = {
+            type = "coreclr",
+          },
+        },
         "neotest-vitest",
       },
     },
