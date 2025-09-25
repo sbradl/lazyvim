@@ -2,6 +2,7 @@
   "extras": [
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.overseer",
+    "lazyvim.plugins.extras.lang.angular",
     "lazyvim.plugins.extras.lang.elixir",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.typescript",
