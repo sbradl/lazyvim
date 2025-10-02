@@ -4,6 +4,7 @@ return {
     opts = {
       dashboard = { enabled = false },
       explorer = { enabled = false },
+      scroll = { enabled = false },
     },
   },
 }
