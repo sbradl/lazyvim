@@ -4,7 +4,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nsidorenco/neotest-vstest",
-      "marilari88/neotest-vitest",
+      -- "marilari88/neotest-vitest",
       "nvim-neotest/neotest-jest",
     },
     opts = {
@@ -14,7 +14,7 @@ return {
             type = "coreclr",
           },
         },
-        "neotest-vitest",
+        -- "neotest-vitest",
         "neotest-jest",
       },
     },
