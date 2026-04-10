@@ -8,6 +8,11 @@ return {
       picker = {
         sources = {
           explorer = {
+            layout = {
+              layout = {
+                width = 60,
+              },
+            },
             win = {
               list = {
                 keys = {
