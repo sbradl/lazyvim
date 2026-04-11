@@ -13,6 +13,21 @@ vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window 
 vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Increase Window Width" })
 vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Decrease Window Width" })
 
+local function focus_first_terminal()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    local buftype = vim.bo[buf].buftype
+
+    if buftype == "terminal" then
+      vim.api.nvim_set_current_win(win)
+      return
+    end
+  end
+
+  print("No terminal window found")
+end
+vim.keymap.set("n", "gt", focus_first_terminal, { desc = "Go to Terminal" })
+
 local matching_file_pairs = {
   { from = "%.spec%.ts$", to = ".ts" },
   { from = "%.ts$", to = ".spec.ts" },
