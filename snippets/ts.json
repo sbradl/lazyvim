@@ -1,0 +1,20 @@
+{
+  "Jest Describe": {
+    "prefix": "descr",
+    "body": [
+      "describe('$0', () => {",
+      "\t$1",
+      "});"
+    ],
+    "description": "jest describe block"
+  },
+  "Jest It": {
+    "prefix": "it",
+    "body": [
+      "it('should $0', () => {",
+      "\t$1",
+      "});"
+    ],
+    "description": "jest it block"
+  }
+}
