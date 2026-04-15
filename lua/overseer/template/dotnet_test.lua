@@ -10,7 +10,7 @@ return {
 
     return {
       cmd = { "dotnet" },
-      args = { "test" },
+      args = { "test", "--no-restore" },
       cwd = csproj,
       components = { "default" },
     }
