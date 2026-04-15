@@ -22,7 +22,7 @@
     "description": "create mstest test method"
   },
   "MSTest Test Method Async": {
-    "prefix": "tm",
+    "prefix": "tma",
     "body": [
       "[TestMethod]",
       "public async Task ${1:TestName}()",
