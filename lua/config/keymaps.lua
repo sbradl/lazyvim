@@ -27,3 +27,7 @@ local function focus_first_terminal()
   print("No terminal window found")
 end
 vim.keymap.set("n", "gt", focus_first_terminal, { desc = "Go to Terminal" })
+
+vim.keymap.set("n", "<leader>cb", "<cmd>Dotnet build solution<cr>", { desc = "Build" })
+vim.keymap.set("n", "<leader>cB", "<cmd>Dotnet build solution quickfix<cr>", { desc = "Build with diagnostics" })
+vim.keymap.set("n", "<leader>ce", "<cmd>Dotnet run profile default<cr>", { desc = "Execute" })
