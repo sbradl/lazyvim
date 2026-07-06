@@ -6,7 +6,9 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     config = function()
-      require("easy-dotnet").setup()
+      require("easy-dotnet").setup({
+        debugger = { engine = "sharpdbg" },
+      })
     end,
   },
 }
