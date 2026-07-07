@@ -3,7 +3,7 @@
 -- Add any additional options here
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.o.diffopt = "internal,filler,closeoff,linematch:40,iwhiteall"
 vim.opt.foldenable = false
 
