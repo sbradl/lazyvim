@@ -58,6 +58,12 @@ return {
       { "<leader>fb", false },
       { "<leader>fB", false },
       { "<leader>ff", false },
+
+      { "<leader>sa", false },
+      { "<leader>sl", false },
+      { "<leader>sC", false },
+      { "<leader>sH", false },
+      { "<leader>sp", false },
     },
   },
 }
