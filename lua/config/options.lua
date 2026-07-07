@@ -6,6 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.relativenumber = true
 vim.o.diffopt = "internal,filler,closeoff,linematch:40,iwhiteall"
 vim.opt.foldenable = false
+vim.g.snacks_animate = false
 
 vim.o.tabstop = 4
 vim.o.expandtab = true
