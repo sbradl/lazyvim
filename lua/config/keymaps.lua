@@ -8,17 +8,14 @@ vim.keymap.set("n", "<C-d>", "<C-w>j", { desc = "Go to Lower window", remap = tr
 vim.keymap.set("n", "<C-u>", "<C-w>k", { desc = "Go to Upper window", remap = true })
 vim.keymap.set("n", "<C-r>", "<C-w>l", { desc = "Go to Right window", remap = true })
 
-vim.keymap.del("n", "<leader>fe")
-vim.keymap.del("n", "<leader>E")
-vim.keymap.del("n", "<leader>fE")
-
 vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "Open Directory of current file", remap = true })
 vim.keymap.set("n", "<leader>E", "<leader>fM", { desc = "Open current working directory", remap = true })
 
-vim.keymap.del("n", "<leader>gi")
-vim.keymap.del("n", "<leader>gI")
-vim.keymap.del("n", "<leader>gp")
-vim.keymap.del("n", "<leader>gP")
+vim.keymap.del("n", "<leader>`")
+vim.keymap.del("n", "<leader>fn")
+vim.keymap.del("n", "<leader>ft")
+vim.keymap.del("n", "<leader>fT")
+vim.keymap.del("n", "<leader>gG")
 
 local function focus_first_terminal()
   for _, win in ipairs(vim.api.nvim_list_wins()) do

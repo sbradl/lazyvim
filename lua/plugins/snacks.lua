@@ -39,5 +39,24 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>e", false },
+      { "<leader>fe", false },
+      { "<leader>E", false },
+      { "<leader>fE", false },
+
+      { "<leader>gi", false },
+      { "<leader>gI", false },
+      { "<leader>gp", false },
+      { "<leader>gP", false },
+      { "<leader>gD", false },
+
+      { "<leader>S", false },
+      { "<leader>.", false },
+
+      { "<leader>fb", false },
+      { "<leader>fB", false },
+      { "<leader>ff", false },
+    },
   },
 }
