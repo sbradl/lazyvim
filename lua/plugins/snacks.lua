@@ -50,6 +50,7 @@ return {
       { "<leader>gp", false },
       { "<leader>gP", false },
       { "<leader>gD", false },
+      { "<leader>gS", false },
 
       { "<leader>S", false },
       { "<leader>.", false },
