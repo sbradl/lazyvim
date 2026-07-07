@@ -11,6 +11,8 @@ vim.keymap.set("n", "<C-r>", "<C-w>l", { desc = "Go to Right window", remap = tr
 vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "Open Directory of current file", remap = true })
 vim.keymap.set("n", "<leader>E", "<leader>fM", { desc = "Open current working directory", remap = true })
 
+vim.keymap.set("n", "<leader>z", "<leader>uZ", { desc = "Toggle Zoom Mode", remap = true })
+
 vim.keymap.del("n", "<leader>`")
 vim.keymap.del("n", "<leader>fn")
 vim.keymap.del("n", "<leader>ft")
