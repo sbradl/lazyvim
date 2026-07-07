@@ -3,15 +3,22 @@
 -- Add any additional keymaps here
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<cmd>e #<cr>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<C-Left>", "<C-w>h", { desc = "Go to Left window", remap = true })
-vim.keymap.set("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower window", remap = true })
-vim.keymap.set("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper window", remap = true })
-vim.keymap.set("n", "<C-Right>", "<C-w>l", { desc = "Go to Right window", remap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>h", { desc = "Go to Left window", remap = true })
+vim.keymap.set("n", "<C-d>", "<C-w>j", { desc = "Go to Lower window", remap = true })
+vim.keymap.set("n", "<C-u>", "<C-w>k", { desc = "Go to Upper window", remap = true })
+vim.keymap.set("n", "<C-r>", "<C-w>l", { desc = "Go to Right window", remap = true })
 
-vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Increase Window Width" })
-vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Decrease Window Width" })
+vim.keymap.del("n", "<leader>fe")
+vim.keymap.del("n", "<leader>E")
+vim.keymap.del("n", "<leader>fE")
+
+vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "Open Directory of current file", remap = true })
+vim.keymap.set("n", "<leader>E", "<leader>fM", { desc = "Open current working directory", remap = true })
+
+vim.keymap.del("n", "<leader>gi")
+vim.keymap.del("n", "<leader>gI")
+vim.keymap.del("n", "<leader>gp")
+vim.keymap.del("n", "<leader>gP")
 
 local function focus_first_terminal()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
