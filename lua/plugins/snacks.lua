@@ -64,6 +64,14 @@ return {
       { "<leader>sC", false },
       { "<leader>sH", false },
       { "<leader>sp", false },
+      { "<leader>n", false },
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    keys = {
+      { "<leader>st", false },
+      { "<leader>sT", false },
     },
   },
 }
