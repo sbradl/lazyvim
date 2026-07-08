@@ -6,7 +6,11 @@ return {
         use_as_default_explorer = true,
       },
       windows = {
+        max_number = math.huge,
         preview = true,
+        width_preview = 120,
+        width_focus = 50,
+        width_nofocus = 50,
       },
     },
     config = function(_, opts)
