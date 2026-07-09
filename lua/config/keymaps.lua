@@ -8,11 +8,12 @@ vim.keymap.set("n", "<C-d>", "<C-w>j", { desc = "Go to Lower window", remap = tr
 vim.keymap.set("n", "<C-u>", "<C-w>k", { desc = "Go to Upper window", remap = true })
 vim.keymap.set("n", "<C-r>", "<C-w>l", { desc = "Go to Right window", remap = true })
 
-vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "Open Directory of current file", remap = true })
+vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "File explorer", remap = true })
 
 vim.keymap.set("n", "<leader>z", "<leader>uZ", { desc = "Toggle Zoom Mode", remap = true })
 
 vim.keymap.del("n", "<leader>`")
+vim.keymap.del("n", "<leader>L")
 vim.keymap.del("n", "<leader>fn")
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")

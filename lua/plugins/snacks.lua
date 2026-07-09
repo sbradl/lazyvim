@@ -60,7 +60,7 @@ return {
         function()
           Snacks.picker.git_files()
         end,
-        desc = "Find Files (git-files)",
+        desc = "Find Files",
       },
       { "<leader>fb", false },
       { "<leader>fB", false },
@@ -74,7 +74,7 @@ return {
         function()
           Snacks.picker.git_grep()
         end,
-        desc = "Grep (git-files)",
+        desc = "Grep",
       },
       { "<leader>sG", false },
       { "<leader>sa", false },
@@ -82,6 +82,7 @@ return {
       { "<leader>sH", false },
       { "<leader>sp", false },
       { "<leader>n", false },
+      { "<leader>:", false },
     },
   },
   {
