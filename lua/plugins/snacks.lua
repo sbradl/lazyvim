@@ -55,13 +55,30 @@ return {
       { "<leader>S", false },
       { "<leader>.", false },
 
+      {
+        "<leader><space>",
+        function()
+          Snacks.picker.git_files()
+        end,
+        desc = "Find Files (git-files)",
+      },
       { "<leader>fb", false },
       { "<leader>fB", false },
       { "<leader>ff", false },
+      { "<leader>fF", false },
+      { "<leader>fg", false },
 
+      { "<leader>/", false },
+      {
+        "<leader>sg",
+        function()
+          Snacks.picker.git_grep()
+        end,
+        desc = "Grep (git-files)",
+      },
+      { "<leader>sG", false },
       { "<leader>sa", false },
       { "<leader>sl", false },
-      { "<leader>sC", false },
       { "<leader>sH", false },
       { "<leader>sp", false },
       { "<leader>n", false },
