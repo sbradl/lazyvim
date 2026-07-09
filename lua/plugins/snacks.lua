@@ -81,7 +81,6 @@ return {
       { "<leader>sl", false },
       { "<leader>sH", false },
       { "<leader>sp", false },
-      { "<leader>n", false },
       { "<leader>:", false },
     },
   },

@@ -33,23 +33,6 @@ vim.keymap.del("n", "<leader><tab>o")
 vim.keymap.del("n", "<leader><tab>[")
 vim.keymap.del("n", "<leader><tab>]")
 
-local function focus_first_terminal()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    local buftype = vim.bo[buf].buftype
-
-    if buftype == "terminal" then
-      vim.api.nvim_set_current_win(win)
-      return
-    end
-  end
-
-  vim.cmd("Dotnet terminal show")
-  vim.cmd("startinsert")
-end
-vim.keymap.set("n", "gt", focus_first_terminal, { desc = "Go to Terminal" })
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-
 vim.keymap.set("n", "<leader>cb", "<cmd>Dotnet build solution<cr>", { desc = "Build" })
 vim.keymap.set("n", "<leader>cB", "<cmd>Dotnet build solution quickfix<cr>", { desc = "Build with diagnostics" })
 vim.keymap.set("n", "<leader>ce", "<cmd>Dotnet run profile default<cr>", { desc = "Execute" })
