@@ -14,6 +14,7 @@ return {
       { "<leader>gb", "<cmd>.DiffviewFileHistory --follow<cr>", desc = "Line History" },
       { "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", desc = "File History" },
       { "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Close Git" },
+      { "<leader>gG", "<cmd>DiffviewToggle<cr>", desc = "Diffview" },
     },
   },
   {
