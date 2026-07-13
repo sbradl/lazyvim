@@ -6,7 +6,12 @@ return {
       require("onedark").setup({
         style = "darker",
       })
-      require("onedark").load()
     end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "onedark",
+    },
   },
 }
