@@ -5,6 +5,7 @@ return {
       dashboard = { enabled = false },
       explorer = { enabled = false },
       scroll = { enabled = false },
+      git = { enabled = false },
       picker = {
         sources = {
           explorer = {

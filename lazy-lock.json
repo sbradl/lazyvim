@@ -8,7 +8,7 @@
   "code-playground.nvim": { "branch": "main", "commit": "b05fba3698946156595252c8907f041730fe2213" },
   "command_runner.nvim": { "branch": "master", "commit": "420ffa38b00fa657d0d7dbd674f2ba1c95fcee64" },
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
-  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
+  "diffview-plus.nvim": { "branch": "main", "commit": "fd688b76e260a26db4b22561af4db16596165e73" },
   "easy-dotnet.nvim": { "branch": "main", "commit": "26b939e2e013ddfc137a8e6149cda1f0b62303ca" },
   "flash.nvim": { "branch": "main", "commit": "b6346946d10d07998efee029fb0f7a593806d0cd" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
