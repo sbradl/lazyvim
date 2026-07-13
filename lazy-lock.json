@@ -26,7 +26,7 @@
   "matching-file.nvim": { "branch": "master", "commit": "6b0fbd87e73e173f92227414ee892ff82cabff2c" },
   "mini.ai": { "branch": "main", "commit": "25248c6aa002391936a6200f12d1466015987133" },
   "mini.comment": { "branch": "main", "commit": "27a29d6b949b9497f80a0a03421e89fed71d8c37" },
-  "mini.files": { "branch": "main", "commit": "0765a2502d3577b2b00d21f8f607f9bd7c8d89fc" },
+  "mini.files": { "branch": "main", "commit": "d08e8da87be8bf07d09245294821706afcca31cd" },
   "mini.hipatterns": { "branch": "main", "commit": "7c840c71d6a91f53d734cab2b6fe2290d285ec3b" },
   "mini.icons": { "branch": "main", "commit": "98faae31e9be1cc054ae63485e58ceb185efcad0" },
   "mini.pairs": { "branch": "main", "commit": "b1fd9df3bb4a41c8f45778a3859ee80ef6b367e3" },

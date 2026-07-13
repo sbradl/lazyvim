@@ -34,9 +34,7 @@ return {
           end
         end
 
-        local desc = "Open in " .. direction .. " split"
-        desc = desc .. " and close"
-        vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+        vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = "Open in " .. direction .. " split" })
       end
 
       vim.api.nvim_create_autocmd("User", {
@@ -44,21 +42,8 @@ return {
         callback = function(args)
           local buf_id = args.data.buf_id
 
-          vim.keymap.set("n", "A", function()
-            local entry = require("mini.files").get_fs_entry()
-            if entry == nil then
-              vim.notify("No fd entry in mini files", vim.log.levels.WARN)
-              return
-            end
-            local target_dir = entry.path
-            if entry.fs_type == "file" then
-              target_dir = vim.fn.fnamemodify(entry.path, ":h")
-            end
-            require("easy-dotnet").create_item(target_dir)
-          end, { buffer = buf_id, desc = "Create item" })
-
-          map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal or "<C-w>s", "horizontal")
-          map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical or "<C-w>v", "vertical")
+          map_split(buf_id, "<C-w>s", "horizontal")
+          map_split(buf_id, "<C-w>v", "vertical")
         end,
       })
     end,

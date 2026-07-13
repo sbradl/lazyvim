@@ -36,3 +36,8 @@ vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.set("n", "<leader>cb", "<cmd>Dotnet build solution<cr>", { desc = "Build" })
 vim.keymap.set("n", "<leader>cB", "<cmd>Dotnet build solution quickfix<cr>", { desc = "Build with diagnostics" })
 vim.keymap.set("n", "<leader>ce", "<cmd>Dotnet run profile default<cr>", { desc = "Execute" })
+
+vim.keymap.set("n", "<leader>cn", function()
+  local target_dir = vim.fn.expand("%:h")
+  require("easy-dotnet").create_item(target_dir)
+end, { desc = "New File" })
