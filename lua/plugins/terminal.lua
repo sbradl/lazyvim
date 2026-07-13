@@ -15,6 +15,7 @@ return {
     dependencies = { "sbradl/terminal.nvim" },
     config = function()
       local r = require("command_runner")
+      r.setup()
 
       vim.keymap.set("n", "<leader>rc", r.run_command, { desc = "Run command for current file", remap = true })
       -- vim.keymap.set("n", "<leader>rr", r.run_last_command, { desc = "Rerun previous command", remap = true })
