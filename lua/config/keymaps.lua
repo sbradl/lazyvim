@@ -3,10 +3,10 @@
 -- Add any additional keymaps here
 vim.api.nvim_set_keymap("n", "<S-Tab>", "<cmd>e #<cr>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<C-l>", "<C-w>h", { desc = "Go to Left window", remap = true })
-vim.keymap.set("n", "<C-d>", "<C-w>j", { desc = "Go to Lower window", remap = true })
-vim.keymap.set("n", "<C-u>", "<C-w>k", { desc = "Go to Upper window", remap = true })
-vim.keymap.set("n", "<C-r>", "<C-w>l", { desc = "Go to Right window", remap = true })
+vim.keymap.set("n", "<A-r>", "<C-w>h", { desc = "Go to Left window", remap = true })
+vim.keymap.set("n", "<A-s>", "<C-w>j", { desc = "Go to Lower window", remap = true })
+vim.keymap.set("n", "<A-f>", "<C-w>k", { desc = "Go to Upper window", remap = true })
+vim.keymap.set("n", "<A-t>", "<C-w>l", { desc = "Go to Right window", remap = true })
 
 vim.keymap.set("n", "<leader>e", "<leader>fm", { desc = "File explorer", remap = true })
 
