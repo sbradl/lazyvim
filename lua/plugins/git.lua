@@ -4,6 +4,11 @@ return {
     opts = {
       enhanced_diff_hl = true,
       diffopt = { algorithm = "histogram" },
+      file_panel = {
+        win_config = {
+          width = "auto",
+        },
+      },
       hooks = {
         diff_buf_read = function()
           vim.opt_local.wrap = false
