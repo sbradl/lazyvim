@@ -37,7 +37,7 @@ return {
       {
         "<leader><space>",
         function()
-          Snacks.picker.files({ cwd = vim.fs.root(vim.fn.getcwd(), ".git") })
+          Snacks.picker.files({ cwd = Snacks.git.get_root() })
         end,
         desc = "Find Files",
       },
@@ -51,7 +51,7 @@ return {
       {
         "<leader>sg",
         function()
-          Snacks.picker.grep({ cwd = vim.fs.root(vim.fn.getcwd(), ".git") })
+          Snacks.picker.grep({ cwd = Snacks.git.get_root() })
         end,
         desc = "Grep",
       },
