@@ -18,7 +18,17 @@ return {
       r.setup()
 
       vim.keymap.set("n", "<leader>rc", r.run_command, { desc = "Run command for current file", remap = true })
-      vim.keymap.set("n", "<leader>rr", r.rerun_command, { desc = "Rerun previous command", remap = true })
+      vim.keymap.set("n", "<leader>rh", r.show_history, { desc = "Show command history", remap = true })
+      -- vim.keymap.set("n", "<leader>rr", r.rerun_command, { desc = "Rerun previous command", remap = true })
+      require("which-key").add({
+        {
+          "<leader>rr",
+          r.rerun_command,
+          desc = function()
+            return r.rerun_command_description() or "Rerun last command"
+          end,
+        },
+      })
     end,
   },
 }
