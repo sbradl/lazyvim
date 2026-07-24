@@ -6,6 +6,12 @@ return {
       explorer = { enabled = false },
       scroll = { enabled = false },
       git = { enabled = false },
+      lazygit = {
+        win = {
+          width = 0.98,
+          height = 0.92,
+        },
+      },
       picker = {
         sources = {
           explorer = {
