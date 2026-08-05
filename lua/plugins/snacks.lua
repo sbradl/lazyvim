@@ -13,6 +13,12 @@ return {
         },
       },
       picker = {
+        layout = {
+          layout = {
+            width = 0.98,
+            height = 0.92,
+          },
+        },
         sources = {
           explorer = {
             layout = {
