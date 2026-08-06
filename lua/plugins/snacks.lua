@@ -49,29 +49,55 @@ return {
       {
         "<leader><space>",
         function()
-          Snacks.picker.files({ cwd = Snacks.git.get_root() })
+          Snacks.picker.git_files()
         end,
-        desc = "Find Files",
+        desc = "Find Files (git)",
+      },
+      {
+        "<leader>ff",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "Find Files (cwd)",
+      },
+      {
+        "<leader>fp",
+        function()
+          Snacks.picker.files({ cwd = LazyVim.root() })
+        end,
+        desc = "Find Files (project)",
       },
       { "<leader>fb", false },
       { "<leader>fB", false },
-      { "<leader>ff", false },
       { "<leader>fF", false },
       { "<leader>fg", false },
 
       { "<leader>/", false },
       {
-        "<leader>sg",
+        "<leader>ss",
         function()
           Snacks.picker.grep({ cwd = Snacks.git.get_root() })
         end,
-        desc = "Grep",
+        desc = "Grep (git)",
+      },
+      {
+        "<leader>sf",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "Grep (cwd)",
+      },
+      {
+        "<leader>sp",
+        function()
+          Snacks.picker.grep({ cwd = LazyVim.root() })
+        end,
+        desc = "Grep (project)",
       },
       { "<leader>sG", false },
       { "<leader>sa", false },
       { "<leader>sl", false },
       { "<leader>sH", false },
-      { "<leader>sp", false },
       { "<leader>:", false },
     },
   },
