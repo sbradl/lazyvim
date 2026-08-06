@@ -49,21 +49,32 @@ return {
       {
         "<leader><space>",
         function()
-          Snacks.picker.git_files()
+          local root = assert(Snacks.git.get_root())
+          Snacks.picker.git_files({
+            title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
+          })
         end,
         desc = "Find Files (git)",
       },
       {
         "<leader>ff",
         function()
-          Snacks.picker.files()
+          local cwd = vim.fn.getcwd()
+          Snacks.picker.git_files({
+            cwd = cwd,
+            title = "Files (" .. vim.fn.fnamemodify(cwd, ":~") .. ")",
+          })
         end,
         desc = "Find Files (cwd)",
       },
       {
         "<leader>fp",
         function()
-          Snacks.picker.files({ cwd = LazyVim.root() })
+          local root = LazyVim.root()
+          Snacks.picker.git_files({
+            cwd = root,
+            title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
+          })
         end,
         desc = "Find Files (project)",
       },
@@ -76,21 +87,34 @@ return {
       {
         "<leader>ss",
         function()
-          Snacks.picker.grep({ cwd = Snacks.git.get_root() })
+          local root = assert(Snacks.git.get_root())
+          Snacks.picker.grep({
+            cwd = Snacks.git.get_root(),
+            title = "Grep (" .. vim.fn.fnamemodify(root, ":~") .. ")",
+          })
         end,
         desc = "Grep (git)",
       },
+      { "<leader>sg", false },
       {
         "<leader>sf",
         function()
-          Snacks.picker.grep()
+          local cwd = vim.fn.getcwd()
+          Snacks.picker.grep({
+            cwd = cwd,
+            title = "Grep (" .. vim.fn.fnamemodify(cwd, ":~") .. ")",
+          })
         end,
         desc = "Grep (cwd)",
       },
       {
         "<leader>sp",
         function()
-          Snacks.picker.grep({ cwd = LazyVim.root() })
+          local root = LazyVim.root()
+          Snacks.picker.grep({
+            cwd = root,
+            title = "Grep (" .. vim.fn.fnamemodify(root, ":~") .. ")",
+          })
         end,
         desc = "Grep (project)",
       },
