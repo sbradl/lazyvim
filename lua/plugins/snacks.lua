@@ -85,7 +85,7 @@ return {
 
       { "<leader>/", false },
       {
-        "<leader>ss",
+        "<leader>sg",
         function()
           local root = assert(Snacks.git.get_root())
           Snacks.picker.grep({
@@ -95,7 +95,6 @@ return {
         end,
         desc = "Grep (git)",
       },
-      { "<leader>sg", false },
       {
         "<leader>sf",
         function()
