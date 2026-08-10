@@ -31,16 +31,6 @@ function M.lsp_extensions()
   return exts
 end
 
--- Builds the " -- -g *.{ext1,ext2}" extension filter (ripgrep glob syntax)
--- for the extensions of all active LSPs.
-function M.lsp_glob_search()
-  local exts = M.lsp_extensions()
-  if #exts == 0 then
-    return nil
-  end
-  return (" -- -g *.{%s}"):format(table.concat(exts, ","))
-end
-
 -- `picker:find()` searches on a *trimmed* clone of the input, so a search
 -- string that is only "-- <args>" loses its leading space and the "-- "
 -- args-split (which requires whitespace before "--") never matches. Restore
@@ -52,19 +42,40 @@ function M.restore_glob_prefix(_, filter)
   end
 end
 
--- Prepopulates the picker input with the LSP extension filter and puts the
--- cursor at the start of the line so the user can type a filter before it.
-function M.prefill_lsp_glob(picker)
-  local search = M.lsp_glob_search()
-  if not search then
-    return
-  end
+-- Sets the picker input to `search`, puts the cursor at the start of the
+-- line so the user can type a filter before it, and re-runs the finder
+-- since setting the input text programmatically doesn't reliably trigger
+-- the input's TextChanged-based auto re-search.
+local function apply_glob(picker, search)
   picker.input:set(nil, search)
   vim.api.nvim_win_set_cursor(picker.input.win.win, { 1, 0 })
-  -- Setting the input text programmatically doesn't reliably trigger the
-  -- input's TextChanged-based auto re-search, so re-run the finder
-  -- ourselves to make sure the glob is actually applied.
   picker:find({ refresh = false })
+end
+
+-- Prepopulates the files picker input with an fd extension filter
+-- (`-e ext`, repeated; fd has no brace-alternation shorthand) for the
+-- extensions of all active LSPs.
+function M.prefill_files_glob(picker)
+  local exts = M.lsp_extensions()
+  if #exts == 0 then
+    return
+  end
+  local parts = { "--" }
+  for _, ext in ipairs(exts) do
+    parts[#parts + 1] = "-e"
+    parts[#parts + 1] = ext
+  end
+  apply_glob(picker, " " .. table.concat(parts, " "))
+end
+
+-- Prepopulates the grep picker input with a ripgrep brace-alternation glob
+-- (`-g *.{ext1,ext2}`) for the extensions of all active LSPs.
+function M.prefill_grep_glob(picker)
+  local exts = M.lsp_extensions()
+  if #exts == 0 then
+    return
+  end
+  apply_glob(picker, (" -- -g *.{%s}"):format(table.concat(exts, ",")))
 end
 
 return M

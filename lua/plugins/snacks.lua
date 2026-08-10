@@ -55,7 +55,7 @@ return {
           Snacks.picker.files({
             cwd = root,
             live = true,
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_files_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
@@ -69,7 +69,7 @@ return {
           Snacks.picker.files({
             cwd = cwd,
             live = true,
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_files_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Files (" .. vim.fn.fnamemodify(cwd, ":~") .. ")",
           })
@@ -83,7 +83,7 @@ return {
           Snacks.picker.files({
             cwd = root,
             live = true,
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_files_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
@@ -102,7 +102,7 @@ return {
           local root = assert(Snacks.git.get_root())
           Snacks.picker.grep({
             cwd = Snacks.git.get_root(),
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_grep_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Grep (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
@@ -115,7 +115,7 @@ return {
           local cwd = vim.fn.getcwd()
           Snacks.picker.grep({
             cwd = cwd,
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_grep_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Grep (" .. vim.fn.fnamemodify(cwd, ":~") .. ")",
           })
@@ -128,7 +128,7 @@ return {
           local root = LazyVim.root()
           Snacks.picker.grep({
             cwd = root,
-            on_show = picker_util.prefill_lsp_glob,
+            on_show = picker_util.prefill_grep_glob,
             filter = { transform = picker_util.restore_glob_prefix },
             title = "Grep (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
