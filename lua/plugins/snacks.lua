@@ -49,7 +49,7 @@ return {
       { "<leader>.", false },
 
       {
-        "<leader><space>",
+        "<leader>ff",
         function()
           local root = assert(Snacks.git.get_root())
           Snacks.picker.files({
@@ -63,7 +63,7 @@ return {
         desc = "Find Files (git)",
       },
       {
-        "<leader>ff",
+        "<leader><space>",
         function()
           local cwd = vim.fn.getcwd()
           Snacks.picker.files({
