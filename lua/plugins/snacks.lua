@@ -54,9 +54,8 @@ return {
           local root = assert(Snacks.git.get_root())
           Snacks.picker.files({
             cwd = root,
-            live = true,
             on_show = picker_util.prefill_files_glob,
-            filter = { transform = picker_util.restore_glob_prefix },
+            filter = { transform = picker_util.split_ft_filter },
             title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
         end,
@@ -68,9 +67,8 @@ return {
           local cwd = vim.fn.getcwd()
           Snacks.picker.files({
             cwd = cwd,
-            live = true,
             on_show = picker_util.prefill_files_glob,
-            filter = { transform = picker_util.restore_glob_prefix },
+            filter = { transform = picker_util.split_ft_filter },
             title = "Files (" .. vim.fn.fnamemodify(cwd, ":~") .. ")",
           })
         end,
@@ -82,9 +80,8 @@ return {
           local root = LazyVim.root()
           Snacks.picker.files({
             cwd = root,
-            live = true,
             on_show = picker_util.prefill_files_glob,
-            filter = { transform = picker_util.restore_glob_prefix },
+            filter = { transform = picker_util.split_ft_filter },
             title = "Files (" .. vim.fn.fnamemodify(root, ":~") .. ")",
           })
         end,
