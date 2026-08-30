@@ -1,80 +1,105 @@
 {
-  "echo": {
-    "prefix": "echo",
-    "body": "echo \"${0:message}\"",
-    "description": "Echo a message."
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "${1:name}() {",
+      "\t$0",
+      "}"
+    ],
+    "description": "function"
   },
-  "read": {
-    "prefix": "read",
-    "body": "read -r ${0:VAR}",
-    "description": "Read input of ${VAR}."
+  "variable": {
+    "prefix": "var",
+    "body": [
+      "${1:name}=${2:value}"
+    ],
+    "description": "variable"
   },
   "if": {
     "prefix": "if",
-    "body": "if [[ ${1:condition} ]]; then\n\t${0}\nfi",
-    "description": "An IF statement."
+    "body": [
+      "if ${1:condition}; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if"
   },
-  "elseif": {
-    "prefix": "elseif",
-    "body": "elif [[ ${1:condition} ]]; then\n\t${0}",
-    "description": "Add an elseif to an if statement."
+  "if else": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:condition}; then",
+      "\t$2",
+      "else",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if / else"
   },
-  "else": {
-    "prefix": "else",
-    "body": "else\n\t${0:command}",
-    "description": "else"
-  },
-  "for_in": {
-    "prefix": "for_in",
-    "body": "for ${1:VAR} in ${0:LIST}\ndo\n\techo \"\\$${1:VAR}\"\ndone\n",
-    "description": "for loop in list"
-  },
-  "for_i": {
-    "prefix": "for_i",
-    "body": "for ((${1:i} = 0; ${1:i} < ${0:10}; ${1:i}++)); do\n\techo \"\\$${1:i}\"\ndone\n",
-    "description": "An index-based iteration for loop."
-  },
-  "while": {
-    "prefix": "while",
-    "body": "while [[ ${1:condition} ]]; do\n\t${0}\ndone\n",
-    "description": "A while loop by condition."
-  },
-  "until": {
-    "prefix": "until",
-    "body": "until [[ ${1:condition} ]]; do\n\t${0}\ndone\n",
-    "description": "until loop by condition"
-  },
-  "function": {
-    "prefix": "function",
-    "body": "${1:name} ()\n{\n\t${0}\n}",
-    "description": [
-      "This defines a function named name.\n",
-      "The reserved word function is optional.\n",
-      "If the function reserved word is supplied, the parentheses are optional.\n",
-      "1. Recommended way:\n",
-      "name() {}\n",
-      "2. C-like-way:\nfunction name [()] {}"
-    ]
+  "else if": {
+    "prefix": "eif",
+    "body": [
+      "elif ${1:condition}; then",
+      "\t$0"
+    ],
+    "description": "elif"
   },
   "case": {
-    "prefix": "case",
-    "body": "case \"\\$${1:VAR}\" in\n\t${2:1}) echo 1\n\t;;\n\t${3:2|3}) echo 2 or 3\n\t;;\n\t*) echo default\n\t;;\nesac\n",
-    "description": [
-      "case word in [ [(] pattern [ | pattern ] ... ) list ;; ] ... esac\n",
-      "A case command first expands word, and tries to match it against each pattern in turn."
-    ]
+    "prefix": "sw",
+    "body": [
+      "case ${1:expr} in",
+      "\t${2:pattern})",
+      "\t\t$0",
+      "\t\t;;",
+      "esac"
+    ],
+    "description": "case"
   },
-  "break": {
-    "prefix": "break",
-    "body": "break ${0}",
-    "description": [
-      "The break command tells Bash to leave the loop straight away.\n",
-      "Enter the break or break (n) where n=number of loops."
-    ]
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} in ${2:list}; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "for loop"
   },
-  "expr": {
-    "prefix": "expr",
-    "body": "expr ${0:1 + 1}",
-    "description": "Calculate numbers with Bash."
+  "for array": {
+    "prefix": "forr",
+    "body": [
+      "for ${1:item} in \"\\${${2:array}[@]}\"; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "iterate array"
+  },
+  "while": {
+    "prefix": "wh",
+    "body": [
+      "while ${1:condition}; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "while"
+  },
+  "echo": {
+    "prefix": "log",
+    "body": [
+      "echo ${1:\"msg\"}"
+    ],
+    "description": "echo"
+  },
+  "echo var": {
+    "prefix": "logv",
+    "body": [
+      "echo \"${1:v} = \\$${1:v}\""
+    ],
+    "description": "echo variable"
+  },
+  "printf": {
+    "prefix": "logf",
+    "body": [
+      "printf '${1:%s}\\n' ${2:args}"
+    ],
+    "description": "printf"
   }
 }

@@ -1,44 +1,40 @@
 {
-  "%": {
-    "prefix": "%",
-    "body": "<% $0 %>"
+  "if": {
+    "prefix": "if",
+    "body": [
+      "<%= if ${1:cond} do %>",
+      "\t$0",
+      "<% end %>"
+    ],
+    "description": "if"
   },
-  "=": {
-    "prefix": "=",
-    "body": "<%= $0 %>"
-  },
-  "gettext": {
-    "prefix": "gt",
-    "body": "<%= gettext(\"$0\") %>"
+  "if else": {
+    "prefix": "ife",
+    "body": [
+      "<%= if ${1:cond} do %>",
+      "\t$2",
+      "<% else %>",
+      "\t$0",
+      "<% end %>"
+    ],
+    "description": "if / else"
   },
   "for": {
     "prefix": "for",
     "body": [
-      "<%= for ${1:item} <- ${2:items} do %>",
-      "  $0",
+      "<%= for ${1:x} <- ${2:enum} do %>",
+      "\t$0",
       "<% end %>"
-    ]
+    ],
+    "description": "comprehension"
   },
-  "if": {
-    "prefix": "if",
+  "for attr": {
+    "prefix": "forr",
     "body": [
-      "<%= if ${1} do %>",
-      "  $0",
-      "<% end %>"
-    ]
-  },
-  "ife": {
-    "prefix": "ife",
-    "body": [
-      "<%= if ${1} do %>",
-      "  $2",
-      "<% else %>",
-      "  $0",
-      "<% end %>"
-    ]
-  },
-  "lin": {
-    "prefix": "lin",
-    "body": "<%= link \"${1:Submit}\", to: ${2:\"/users\"}, method: ${3::delete} %>"
+      "<${1:div} :for={${2:x} <- ${3:enum}}>",
+      "\t$0",
+      "</${1:div}>"
+    ],
+    "description": ":for attribute"
   }
 }

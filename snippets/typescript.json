@@ -1,309 +1,244 @@
 {
-  "Constructor": {
+  "method": {
+    "prefix": "fn",
+    "body": [
+      "${1:name}(${2:args}): ${3:void} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "method"
+  },
+  "private method": {
+    "prefix": "pfn",
+    "body": [
+      "private ${1:name}(${2:args}): ${3:void} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "private method"
+  },
+  "arrow function": {
+    "prefix": "afn",
+    "body": [
+      "(${1:args}) => ${0}"
+    ],
+    "description": "arrow function"
+  },
+  "constructor": {
     "prefix": "ctor",
     "body": [
-      "/**",
-      " *",
-      " */",
-      "constructor() {",
-      "\tsuper();",
+      "constructor(${1:args}) {",
       "\t$0",
       "}"
     ],
-    "description": "Constructor"
+    "description": "constructor"
   },
-  "Class Definition": {
-    "prefix": "class",
+  "class": {
+    "prefix": "cls",
     "body": [
-      "class ${1:name} {",
-      "\tconstructor(${2:parameters}) {",
-      "\t\t$0",
-      "\t}",
+      "class ${1:Name} {",
+      "\t$0",
       "}"
     ],
-    "description": "Class Definition"
+    "description": "class"
   },
-  "Interface Definition": {
+  "interface": {
     "prefix": "iface",
     "body": [
-      "interface ${1:name} {",
+      "interface ${1:Name} {",
       "\t$0",
       "}"
     ],
-    "description": "Interface Definition"
+    "description": "interface"
   },
-  "Public Method Definition": {
-    "prefix": "public method",
+  "enum": {
+    "prefix": "enum",
     "body": [
-      "/**",
-      " * ${1:name}",
-      " */",
-      "public ${1:name}() {",
+      "enum ${1:Name} {",
       "\t$0",
       "}"
     ],
-    "description": "Public Method Definition"
+    "description": "enum"
   },
-  "Private Method Definition": {
-    "prefix": "private method",
+  "variable": {
+    "prefix": "var",
     "body": [
-      "private ${1:name}() {",
-      "\t$0",
-      "}"
+      "let ${1:name} = ${2:value};"
     ],
-    "description": "Private Method Definition"
+    "description": "variable"
   },
-  "Import external module.": {
-    "prefix": "import statement",
+  "private field": {
+    "prefix": "pvar",
     "body": [
-      "import { $0 } from \"${1:module}\";"
+      "private ${1:name}: ${2:type};"
     ],
-    "description": "Import external module."
+    "description": "private field"
   },
-  "Property getter": {
-    "prefix": "get",
+  "constant": {
+    "prefix": "const",
     "body": [
-      "",
-      "public get ${1:value}() : ${2:string} {",
-      "\t${3:return $0}",
-      "}",
-      ""
+      "const ${1:name} = ${2:value};"
     ],
-    "description": "Property getter"
+    "description": "constant"
   },
-  "Log to the console": {
-    "prefix": "log",
-    "body": [
-      "console.log($1);",
-      "$0"
-    ],
-    "description": "Log to the console"
-  },
-  "Log warning to console": {
-    "prefix": "warn",
-    "body": [
-      "console.warn($1);",
-      "$0"
-    ],
-    "description": "Log warning to the console"
-  },
-  "Log error to console": {
-    "prefix": "error",
-    "body": [
-      "console.error($1);",
-      "$0"
-    ],
-    "description": "Log error to the console"
-  },
-  "Define a full property": {
-    "prefix": "prop",
-    "body": [
-      "",
-      "private _${1:value} : ${2:string};",
-      "public get ${1:value}() : ${2:string} {",
-      "\treturn this._${1:value};",
-      "}",
-      "public set ${1:value}(v : ${2:string}) {",
-      "\tthis._${1:value} = v;",
-      "}",
-      ""
-    ],
-    "description": "Define a full property"
-  },
-  "Triple-slash reference": {
-    "prefix": "ref",
-    "body": [
-      "/// <reference path=\"$1\" />",
-      "$0"
-    ],
-    "description": "Triple-slash reference"
-  },
-  "Property setter": {
-    "prefix": "set",
-    "body": [
-      "",
-      "public set ${1:value}(v : ${2:string}) {",
-      "\tthis.$3 = v;",
-      "}",
-      ""
-    ],
-    "description": "Property setter"
-  },
-  "Throw Exception": {
-    "prefix": "throw",
-    "body": [
-      "throw \"$1\";",
-      "$0"
-    ],
-    "description": "Throw Exception"
-  },
-  "For Loop": {
-    "prefix": "for",
-    "body": [
-      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:index}];",
-      "\t$0",
-      "}"
-    ],
-    "description": "For Loop"
-  },
-  "For-Each Loop using =>": {
-    "prefix": "foreach =>",
-    "body": [
-      "${1:array}.forEach(${2:element} => {",
-      "\t$0",
-      "});"
-    ],
-    "description": "For-Each Loop using =>"
-  },
-  "For-In Loop": {
-    "prefix": "forin",
-    "body": [
-      "for (const ${1:key} in ${2:object}) {",
-      "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-      "\t\tconst ${3:element} = ${2:object}[${1:key}];",
-      "\t\t$0",
-      "\t}",
-      "}"
-    ],
-    "description": "For-In Loop"
-  },
-  "For-Of Loop": {
-    "prefix": "forof",
-    "body": [
-      "for (const ${1:iterator} of ${2:object}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "For-Of Loop"
-  },
-  "For-Await-Of Loop": {
-    "prefix": "forawaitof",
-    "body": [
-      "for await (const ${1:iterator} of ${2:object}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "For-Await-Of Loop"
-  },
-  "Function Statement": {
-    "prefix": "function",
-    "body": [
-      "function ${1:name}(${2:params}:${3:type}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "Function Statement"
-  },
-  "If Statement": {
+  "if": {
     "prefix": "if",
     "body": [
-      "if (${1:condition}) {",
+      "if (${1:cond}) {",
       "\t$0",
       "}"
     ],
-    "description": "If Statement"
+    "description": "if"
   },
-  "If-Else Statement": {
-    "prefix": "ifelse",
+  "if else": {
+    "prefix": "ife",
     "body": [
-      "if (${1:condition}) {",
+      "if (${1:cond}) {",
       "\t$2",
       "} else {",
       "\t$0",
       "}"
     ],
-    "description": "If-Else Statement"
+    "description": "if / else"
   },
-  "New Statement": {
-    "prefix": "new",
+  "else if": {
+    "prefix": "eif",
     "body": [
-      "const ${1:name} = new ${2:type}(${3:arguments});$0"
+      "else if (${1:cond}) {",
+      "\t$0",
+      "}"
     ],
-    "description": "New Statement"
+    "description": "else if"
   },
-  "Switch Statement": {
-    "prefix": "switch",
+  "switch": {
+    "prefix": "sw",
     "body": [
-      "switch (${1:key}) {",
-      "\tcase ${2:value}:",
+      "switch (${1:expr}) {",
+      "\tcase ${2:val}:",
       "\t\t$0",
       "\t\tbreak;",
-      "",
       "\tdefault:",
       "\t\tbreak;",
       "}"
     ],
-    "description": "Switch Statement"
+    "description": "switch"
   },
-  "While Statement": {
-    "prefix": "while",
+  "for": {
+    "prefix": "for",
     "body": [
-      "while (${1:condition}) {",
+      "for (let ${1:i} = 0; ${1:i} < ${2:n}; ${1:i}++) {",
       "\t$0",
       "}"
     ],
-    "description": "While Statement"
+    "description": "for loop"
   },
-  "Do-While Statement": {
-    "prefix": "dowhile",
+  "for of": {
+    "prefix": "forr",
     "body": [
-      "do {",
+      "for (const ${1:item} of ${2:iterable}) {",
       "\t$0",
-      "} while (${1:condition});"
+      "}"
     ],
-    "description": "Do-While Statement"
+    "description": "for ... of"
   },
-  "Try-Catch Statement": {
-    "prefix": "trycatch",
+  "while": {
+    "prefix": "wh",
+    "body": [
+      "while (${1:cond}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "while"
+  },
+  "try": {
+    "prefix": "try",
     "body": [
       "try {",
+      "\t$1",
+      "} catch (${2:err}) {",
       "\t$0",
-      "} catch (${1:error}) {",
-      "\t",
       "}"
     ],
-    "description": "Try-Catch Statement"
+    "description": "try / catch"
   },
-  "Set Timeout Function": {
-    "prefix": "settimeout",
+  "try finally": {
+    "prefix": "tryf",
     "body": [
-      "setTimeout(() => {",
+      "try {",
+      "\t$1",
+      "} catch (${2:err}) {",
+      "\t$3",
+      "} finally {",
       "\t$0",
-      "}, ${1:timeout});"
+      "}"
     ],
-    "description": "Set Timeout Function"
+    "description": "try / catch / finally"
   },
-  "Region Start": {
-    "prefix": "#region",
+  "throw": {
+    "prefix": "throw",
     "body": [
-      "//#region $0"
+      "throw new ${1:Error}(${2:\"message\"});"
     ],
-    "description": "Folding Region Start"
+    "description": "throw"
   },
-  "Region End": {
-    "prefix": "#endregion",
+  "import": {
+    "prefix": "imp",
     "body": [
-      "//#endregion"
+      "import { ${1:member} } from \"${2:module}\";"
     ],
-    "description": "Folding Region End"
+    "description": "import"
   },
-  "Jest Describe": {
-    "prefix": "descr",
+  "export": {
+    "prefix": "exp",
     "body": [
-      "describe('$1', () => {",
+      "export ${0}"
+    ],
+    "description": "export"
+  },
+  "log": {
+    "prefix": "log",
+    "body": [
+      "console.log(${1:\"msg\"});"
+    ],
+    "description": "console.log"
+  },
+  "log var": {
+    "prefix": "logv",
+    "body": [
+      "console.log(\"${1:v} =\", ${1:v});"
+    ],
+    "description": "log variable"
+  },
+  "logf": {
+    "prefix": "logf",
+    "body": [
+      "console.log(`${1:msg}`);"
+    ],
+    "description": "template log"
+  },
+  "return": {
+    "prefix": "ret",
+    "body": [
+      "return ${0};"
+    ],
+    "description": "return"
+  },
+  "test": {
+    "prefix": "test",
+    "body": [
+      "it(\"${1:should}\", () => {",
       "\t$0",
       "});"
     ],
-    "description": "jest describe block"
+    "description": "test case"
   },
-  "Jest It": {
-    "prefix": "it",
+  "suite": {
+    "prefix": "suite",
     "body": [
-      "it('should $1', () => {",
+      "describe(\"${1:name}\", () => {",
       "\t$0",
       "});"
     ],
-    "description": "jest it block"
+    "description": "describe block"
   }
 }

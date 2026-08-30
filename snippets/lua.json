@@ -1,200 +1,155 @@
 {
-  "require": {
-    "prefix": "req",
+  "function": {
+    "prefix": "fn",
     "body": [
-      "require(${1:module})"
-    ],
-    "description": "Require module"
-  },
-  "return": {
-    "prefix": "rt",
-    "body": [
-      "return $0"
-    ],
-    "description": "Return value"
-  },
-  "assigment": {
-    "prefix": "ll",
-    "body": [
-      "local ${1:varName} = ${0:value}"
-    ],
-    "description": "Define a variable"
-  },
-  "local": {
-    "prefix": "l",
-    "body": [
-      "local ${0}"
-    ],
-    "description": "Declare a variable"
-  },
-  "locreq": {
-    "prefix": "lreq",
-    "body": [
-      "local ${1:module} = require(\"${2:$1}\")$0"
-    ],
-    "description": "Require module as a variable"
-  },
-  "class": {
-    "prefix": "cl",
-    "body": [
-      "${1:M} = {}\n",
-      "$1.${2:new} = function($3)",
-      "\t${6}",
+      "function ${1:name}(${2:args})",
+      "\t$0",
       "end"
     ],
-    "description": "Create a class"
+    "description": "function"
+  },
+  "local function": {
+    "prefix": "pfn",
+    "body": [
+      "local function ${1:name}(${2:args})",
+      "\t$0",
+      "end"
+    ],
+    "description": "local function"
+  },
+  "anonymous function": {
+    "prefix": "afn",
+    "body": [
+      "function(${1:args})",
+      "\t$0",
+      "end"
+    ],
+    "description": "anonymous function"
+  },
+  "constructor": {
+    "prefix": "ctor",
+    "body": [
+      "function ${1:Class}.new(${2:args})",
+      "\tlocal self = setmetatable({}, ${1:Class})",
+      "\t$0",
+      "\treturn self",
+      "end"
+    ],
+    "description": "constructor"
+  },
+  "class": {
+    "prefix": "cls",
+    "body": [
+      "local ${1:Name} = {}",
+      "${1:Name}.__index = ${1:Name}",
+      "$0"
+    ],
+    "description": "class table"
+  },
+  "variable": {
+    "prefix": "var",
+    "body": [
+      "local ${1:name} = ${2:value}"
+    ],
+    "description": "local variable"
   },
   "if": {
     "prefix": "if",
     "body": [
-      "if ${1:true} then",
+      "if ${1:cond} then",
       "\t$0",
       "end"
-    ]
+    ],
+    "description": "if"
   },
-  "elseif": {
-    "prefix": "elseif",
+  "if else": {
+    "prefix": "ife",
     "body": [
-      "elseif ${1:true} then",
+      "if ${1:cond} then",
+      "\t$2",
+      "else",
+      "\t$0",
+      "end"
+    ],
+    "description": "if / else"
+  },
+  "else if": {
+    "prefix": "eif",
+    "body": [
+      "elseif ${1:cond} then",
       "\t$0"
-    ]
+    ],
+    "description": "elseif"
   },
   "for": {
     "prefix": "for",
     "body": [
-      "for $1 do",
+      "for ${1:i} = ${2:1}, ${3:n} do",
       "\t$0",
       "end"
     ],
-    "description": "for statement"
+    "description": "numeric for"
   },
-  "for-numeric": {
-    "prefix": "forn",
+  "for ipairs": {
+    "prefix": "forr",
     "body": [
-      "for ${1:i} = ${2:1}, ${3:10} do",
+      "for ${1:i}, ${2:v} in ipairs(${3:t}) do",
       "\t$0",
       "end"
     ],
-    "description": "for numeric range statement"
-  },
-  "for-ipairs": {
-    "prefix": "fori",
-    "body": [
-      "for ${1:i}, ${2:x} in ipairs(${3:t}) do",
-      "\t$0",
-      "end"
-    ],
-    "description": "for i, x in ipairs(t)"
-  },
-  "for-pairs": {
-    "prefix": "forp",
-    "body": [
-      "for ${1:k}, ${2:v} in pairs(${3:t}) do",
-      "\t$0",
-      "end"
-    ],
-    "description": "for k, v in pairs(t)"
-  },
-  "forline": {
-    "prefix": "forline",
-    "body": [
-      "local f = io.open(${1:${2:filename}}, \"${3:r}\")\n",
-      "while true do",
-      "\tline = f:read()",
-      "\tif line == nil then break end\n",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Read file line by line"
-  },
-  "function": {
-    "prefix": "fu",
-    "body": [
-      "function ${1:name}($2)",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Define a function"
-  },
-  "assign-function": {
-    "prefix": "f=",
-    "body": [
-      "${1:name} = function($2)",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Assign a function to a variable"
-  },
-  "local-function": {
-    "prefix": "lfu",
-    "body": [
-      "local function ${1:name}($2)",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Define a local function"
-  },
-  "local-assign-function": {
-    "prefix": "lf=",
-    "body": [
-      "local ${1:name} = function($2)",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Assign a function to a local variable"
-  },
-  "anonymous-function": {
-    "prefix": "f)",
-    "body": [
-      "function($1)",
-      "\t${0}",
-      "end"
-    ],
-    "description": "Create an anonymous function"
-  },
-  "member-function": {
-    "prefix": "f,",
-    "body": [
-      "${1:name} = function($2)",
-      "\t${0}",
-      "end,"
-    ],
-    "description": "Assign a function to a table key"
-  },
-  "print": {
-    "prefix": "p",
-    "body": [
-      "print(${0})"
-    ]
-  },
-  "self": {
-    "prefix": "self:",
-    "body": [
-      "function self:${1:methodName}($2)",
-      "\t$0",
-      "end"
-    ]
+    "description": "for ipairs"
   },
   "while": {
-    "prefix": "while",
+    "prefix": "wh",
     "body": [
-      "while ${1:true} do",
+      "while ${1:cond} do",
       "\t$0",
       "end"
-    ]
+    ],
+    "description": "while"
   },
   "pcall": {
-    "prefix": "pca",
+    "prefix": "try",
     "body": [
-      "pcall(${1:function})"
+      "local ok, err = pcall(function()",
+      "\t$0",
+      "end)"
     ],
-    "description": "Protect call a function"
+    "description": "protected call"
   },
-  "locpcall": {
-    "prefix": "lpca",
+  "error": {
+    "prefix": "throw",
     "body": [
-      "local ${1:status}, ${2:err_or_value} = pcall(${3:function})"
+      "error(${1:\"message\"})"
     ],
-    "description": "Protect call a function as a variable"
+    "description": "error"
+  },
+  "require": {
+    "prefix": "imp",
+    "body": [
+      "local ${1:mod} = require(\"${2:module}\")"
+    ],
+    "description": "require"
+  },
+  "print": {
+    "prefix": "log",
+    "body": [
+      "print(${1:\"msg\"})"
+    ],
+    "description": "print"
+  },
+  "print var": {
+    "prefix": "logv",
+    "body": [
+      "print(\"${1:v} =\", ${1:v})"
+    ],
+    "description": "print variable"
+  },
+  "return": {
+    "prefix": "ret",
+    "body": [
+      "return ${0}"
+    ],
+    "description": "return"
   }
 }

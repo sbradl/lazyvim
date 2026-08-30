@@ -1,238 +1,139 @@
 {
-  "defmodule": {
-    "prefix": "defmo",
-    "body": [
-      "defmodule ${1:module} do",
-      "  $0",
-      "end"
-    ],
-    "description": "Define a module"
-  },
   "def": {
-    "prefix": "def",
+    "prefix": "fn",
     "body": [
-      "def ${1:name}() do",
-      "  $0",
+      "def ${1:name}(${2:args}) do",
+      "\t$0",
       "end"
     ],
-    "description": "Define a function"
+    "description": "public function"
   },
   "defp": {
-    "prefix": "defp",
+    "prefix": "pfn",
     "body": [
-      "defp ${1:name}() do",
-      "  $0",
+      "defp ${1:name}(${2:args}) do",
+      "\t$0",
       "end"
     ],
-    "description": "Define a private function"
+    "description": "private function"
   },
-  "df": {
-    "prefix": "df",
-    "body": "def ${1:name}(), do: $0",
-    "description": "Define a one-liner function"
+  "anonymous function": {
+    "prefix": "afn",
+    "body": [
+      "fn ${1:args} ->",
+      "\t$0",
+      "end"
+    ],
+    "description": "anonymous function"
   },
-  "dfw": {
-    "prefix": "dfw",
-    "body": "def ${1:name}(${2:args}) when ${3:guard}, do: $0",
-    "description": "Define a one-liner function with when guard"
+  "defmodule": {
+    "prefix": "cls",
+    "body": [
+      "defmodule ${1:Name} do",
+      "\t$0",
+      "end"
+    ],
+    "description": "module"
   },
-  "IO.puts": {
-    "prefix": "put",
-    "body": "IO.puts($0)"
+  "variable": {
+    "prefix": "var",
+    "body": [
+      "${1:name} = ${2:value}"
+    ],
+    "description": "binding"
   },
-  "IO.inspect": {
-    "prefix": "ins",
-    "body": "IO.inspect($0)"
-  },
-  "IO.inspect with label": {
-    "prefix": "insl",
-    "body": "IO.inspect($1, label: \"$0\")"
-  },
-  "if .. do .. end": {
+  "if": {
     "prefix": "if",
     "body": [
-      "if ${1:condition} do",
-      "  $0",
+      "if ${1:cond} do",
+      "\t$0",
       "end"
-    ]
+    ],
+    "description": "if"
   },
-  "if .. do:": {
-    "prefix": "if:",
-    "body": "if ${1:condition}, do: $0"
-  },
-  "if .. do .. else .. end": {
+  "if else": {
     "prefix": "ife",
     "body": [
-      "if ${1:condition} do",
-      "  $2",
+      "if ${1:cond} do",
+      "\t$2",
       "else",
-      "  $0",
+      "\t$0",
       "end"
-    ]
-  },
-  "if .. do: .. else:": {
-    "prefix": "ife:",
-    "body": "if ${1:condition}, do: $2, else: $0"
-  },
-  "cond": {
-    "prefix": "cond",
-    "body": [
-      "cond do",
-      "  $1 -> ",
-      "  $0",
-      "end"
-    ]
+    ],
+    "description": "if / else"
   },
   "case": {
-    "prefix": "case",
+    "prefix": "sw",
     "body": [
-      "case $1 do",
-      "  $2 -> ",
-      "    $0",
+      "case ${1:expr} do",
+      "\t${2:pattern} ->",
+      "\t\t$0",
       "end"
-    ]
+    ],
+    "description": "case"
   },
   "for": {
     "prefix": "for",
     "body": [
-      "for ${1:item} <- ${2:items} do",
-      "  $0",
+      "for ${1:x} <- ${2:enum} do",
+      "\t$0",
       "end"
-    ]
+    ],
+    "description": "comprehension"
   },
-  "def + doc": {
-    "prefix": "defd",
+  "Enum.each": {
+    "prefix": "forr",
     "body": [
-      "@doc \"\"\"",
-      "${1:doc}",
-      "\"\"\"",
-      "def ${2:name} do",
-      "  $0",
-      "end"
-    ]
+      "Enum.each(${1:enum}, fn ${2:x} ->",
+      "\t$0",
+      "end)"
+    ],
+    "description": "Enum.each"
   },
-  "def + spec": {
-    "prefix": "defs",
+  "raise": {
+    "prefix": "throw",
     "body": [
-      "@spec ${1:name}(${2:args}) :: ${3:no_return}",
-      "def $1{4:args} do",
-      "  $0",
-      "end"
-    ]
+      "raise ${1:\"message\"}"
+    ],
+    "description": "raise"
   },
-  "def + doc + spec": {
-    "prefix": "defsd",
+  "alias": {
+    "prefix": "imp",
     "body": [
-      "@doc \"\"\"",
-      "${1:doc}",
-      "\"\"\"",
-      "@spec ${2:name}(${3:args}) :: ${4:no_return}",
-      "def $2{5:args} do",
-      "  $0",
-      "end"
-    ]
+      "alias ${1:Module}"
+    ],
+    "description": "alias"
   },
-  "do": {
-    "prefix": "do",
+  "IO.puts": {
+    "prefix": "log",
     "body": [
-      "do",
-      "  $0",
-      "end"
-    ]
+      "IO.puts(${1:\"msg\"})"
+    ],
+    "description": "print line"
   },
-  "doc": {
-    "prefix": "doc",
+  "IO.inspect": {
+    "prefix": "logv",
     "body": [
-      "@doc \"\"\"",
-      "$0",
-      "\"\"\""
-    ]
-  },
-  "doc s": {
-    "prefix": "docs",
-    "body": [
-      "@doc ~S\"\"\"",
-      "$0",
-      "\"\"\""
-    ]
-  },
-  "doc false": {
-    "prefix": "docf",
-    "body": "@doc false"
-  },
-  "moduledoc": {
-    "prefix": "mdoc",
-    "body": [
-      "@moduledoc \"\"\"",
-      "$0",
-      "\"\"\""
-    ]
-  },
-  "moduledoc s": {
-    "prefix": "mdocs",
-    "body": [
-      "@moduledoc ~S\"\"\"",
-      "$0",
-      "\"\"\""
-    ]
-  },
-  "moduledoc false": {
-    "prefix": "mdocf",
-    "body": "@moduledoc false"
-  },
-  "require": {
-    "prefix": "req",
-    "body": "require ${0:Logger}"
+      "IO.inspect(${1:v}, label: \"${1:v}\")"
+    ],
+    "description": "inspect variable"
   },
   "test": {
     "prefix": "test",
     "body": [
-      "test \"${1:name}\" do",
-      "  $0",
+      "test \"${1:description}\" do",
+      "\t$0",
       "end"
-    ]
+    ],
+    "description": "ExUnit test"
   },
-  "des": {
-    "prefix": "desc",
+  "describe": {
+    "prefix": "suite",
     "body": [
-      "describe \"${1:test group subject}\" do",
-      "  $0",
+      "describe \"${1:name}\" do",
+      "\t$0",
       "end"
-    ]
-  },
-  "IEx.pry": {
-    "prefix": "pry",
-    "body": [
-      "require IEx; IEx.pry",
-      "$0"
-    ]
-  },
-  "pipe char": {
-    "prefix": "p",
-    "body": "|> $0"
-  },
-  "pipe into each": {
-    "prefix": ">e",
-    "body": "|> Enum.each($0)"
-  },
-  "pipe into map": {
-    "prefix": ">m",
-    "body": "|> Enum.map($0)"
-  },
-  "pipe into filter": {
-    "prefix": ">f",
-    "body": "|> Enum.filter($0)"
-  },
-  "pipe into reduce": {
-    "prefix": ">r",
-    "body": "|> Enum.reduce(${1:acc}, fn ${2}, ${3:acc} -> $0 end)"
-  },
-  "word list": {
-    "prefix": "wl",
-    "body": "~w($0)"
-  },
-  "atom list": {
-    "prefix": "al",
-    "body": "~w($0)a"
+    ],
+    "description": "describe block"
   }
 }
