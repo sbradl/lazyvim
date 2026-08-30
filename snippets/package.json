@@ -1,0 +1,150 @@
+{
+  "name": "nvim-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "go"
+        ],
+        "path": "./go.json"
+      },
+      {
+        "language": [
+          "cs",
+          "csharp"
+        ],
+        "path": "./cs.json"
+      },
+      {
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./typescript.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "javascriptreact"
+        ],
+        "path": "./javascript.json"
+      },
+      {
+        "language": [
+          "html"
+        ],
+        "path": "./html.json"
+      },
+      {
+        "language": [
+          "css",
+          "scss",
+          "sass",
+          "less",
+          "stylus"
+        ],
+        "path": "./css.json"
+      },
+      {
+        "language": [
+          "htmlangular",
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./angular.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
+      },
+      {
+        "language": [
+          "sql"
+        ],
+        "path": "./sql.json"
+      },
+      {
+        "language": [
+          "elixir"
+        ],
+        "path": "./elixir.json"
+      },
+      {
+        "language": [
+          "eelixir",
+          "heex"
+        ],
+        "path": "./heex.json"
+      },
+      {
+        "language": [
+          "sh",
+          "bash",
+          "zsh",
+          "shellscript"
+        ],
+        "path": "./shell.json"
+      },
+      {
+        "language": [
+          "powershell",
+          "ps1"
+        ],
+        "path": "./powershell.json"
+      },
+      {
+        "language": [
+          "dockerfile"
+        ],
+        "path": "./dockerfile.json"
+      },
+      {
+        "language": [
+          "yaml"
+        ],
+        "path": "./docker-compose.json"
+      },
+      {
+        "language": [
+          "yaml"
+        ],
+        "path": "./yaml.json"
+      },
+      {
+        "language": [
+          "markdown"
+        ],
+        "path": "./markdown.json"
+      },
+      {
+        "language": [
+          "all"
+        ],
+        "path": "./license.json"
+      },
+      {
+        "language": [
+          "all"
+        ],
+        "path": "./loremipsum.json"
+      },
+      {
+        "language": [
+          "editorconfig"
+        ],
+        "path": "./editorconfig.json"
+      },
+      {
+        "language": [
+          "plantuml"
+        ],
+        "path": "./plantuml.json"
+      }
+    ]
+  }
+}
