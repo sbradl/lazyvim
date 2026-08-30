@@ -136,13 +136,11 @@
     ],
     "description": "describe block"
   },
-  "function with guard": {
+  "guard": {
     "prefix": "guard",
     "body": [
-      "def ${1:name}(${2:arg}) when is_${3:binary}(${2:arg}) do",
-      "\t$0",
-      "end"
+      "when is_${1:binary}(${2:arg})"
     ],
-    "description": "function with guard clause"
+    "description": "guard clause"
   }
 }
