@@ -279,5 +279,26 @@
       "}"
     ],
     "description": "generic method"
+  },
+  "type constraint": {
+    "prefix": "guard",
+    "body": [
+      "where ${1:T} : ${2:class}"
+    ],
+    "description": "generic type constraint"
+  },
+  "record": {
+    "prefix": "record",
+    "body": [
+      "public record ${1:Name}(${2:string Value});"
+    ],
+    "description": "record"
+  },
+  "file namespace": {
+    "prefix": "ns",
+    "body": [
+      "namespace ${1:Name};"
+    ],
+    "description": "file-scoped namespace"
   }
 }

@@ -135,5 +135,14 @@
       "end"
     ],
     "description": "describe block"
+  },
+  "function with guard": {
+    "prefix": "guard",
+    "body": [
+      "def ${1:name}(${2:arg}) when is_${3:binary}(${2:arg}) do",
+      "\t$0",
+      "end"
+    ],
+    "description": "function with guard clause"
   }
 }

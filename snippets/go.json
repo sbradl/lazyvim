@@ -206,11 +206,11 @@
   "guard": {
     "prefix": "guard",
     "body": [
-      "if ${1:cond} {",
-      "\treturn ${2:err}",
+      "type ${1:Name} interface {",
+      "\t${2:~int | ~string}",
       "}"
     ],
-    "description": "guard clause"
+    "description": "type constraint"
   },
   "generic function": {
     "prefix": "gfn",
