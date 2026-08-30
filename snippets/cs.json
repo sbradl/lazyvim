@@ -269,5 +269,15 @@
       "}"
     ],
     "description": "test class"
+  },
+  "generic method": {
+    "prefix": "gfn",
+    "body": [
+      "public ${1:TResult} ${2:Name}<${3:T}>(${4:T arg})",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "generic method"
   }
 }

@@ -240,5 +240,14 @@
       "});"
     ],
     "description": "describe block"
+  },
+  "generic function": {
+    "prefix": "gfn",
+    "body": [
+      "function ${1:name}<${2:T}>(${3:arg}: ${2:T}): ${2:T} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "generic function"
   }
 }
