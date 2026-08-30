@@ -193,5 +193,59 @@
       "}"
     ],
     "description": "test function"
+  },
+  "if err": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:err}",
+      "}"
+    ],
+    "description": "if err != nil"
+  },
+  "guard": {
+    "prefix": "guard",
+    "body": [
+      "if ${1:cond} {",
+      "\treturn ${2:err}",
+      "}"
+    ],
+    "description": "guard clause"
+  },
+  "generic function": {
+    "prefix": "gfn",
+    "body": [
+      "func ${1:Name}[${2:T} ${3:any}](${4:arg} ${2:T}) ${2:T} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "generic function"
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "func main() {",
+      "\t$0",
+      "}"
+    ],
+    "description": "main function"
+  },
+  "table test": {
+    "prefix": "tdt",
+    "body": [
+      "tests := []struct {",
+      "\tname string",
+      "\t${1:in}   ${2:string}",
+      "\twant ${3:string}",
+      "}{",
+      "\t{name: \"${4:case}\", ${1:in}: $5, want: $6},",
+      "}",
+      "for _, tt := range tests {",
+      "\tt.Run(tt.name, func(t *testing.T) {",
+      "\t\t$0",
+      "\t})",
+      "}"
+    ],
+    "description": "table-driven test"
   }
 }
