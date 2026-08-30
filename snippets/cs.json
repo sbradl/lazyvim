@@ -300,5 +300,12 @@
       "namespace ${1:Name};"
     ],
     "description": "file-scoped namespace"
+  },
+  "auto property": {
+    "prefix": "prop",
+    "body": [
+      "public ${1:string} ${2:Name} { get; set; }"
+    ],
+    "description": "auto-property"
   }
 }
