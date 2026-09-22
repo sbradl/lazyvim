@@ -40,3 +40,5 @@ vim.keymap.set("n", "<leader>cn", function()
   local target_dir = vim.fn.expand("%:h")
   require("easy-dotnet").create_item(target_dir)
 end, { desc = "New File" })
+
+vim.keymap.set({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word before cursor" })
