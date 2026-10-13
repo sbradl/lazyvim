@@ -19,7 +19,10 @@ return {
     config = function()
       require("easy-dotnet").setup({
         debugger = { engine = "sharpdbg" },
-        lsp = { auto_refresh_codelens = false },
+        lsp = {
+          auto_refresh_codelens = false,
+          razor = { enabled = false },
+        },
       })
     end,
   },
